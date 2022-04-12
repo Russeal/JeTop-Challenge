@@ -1,0 +1,51 @@
+<div class="container" style="margin: 2rem auto;">
+    <h1 style="text-align: center; font-weight: 400;">Contact us</h1>
+    <div class="wrapper">
+        <form (ngSubmit)="sendEmail()">
+            <div class="field">
+                <input type="text" id="name" name="name" placeholder="Who are you?" [(ngModel)]="name" autofocus/>
+                <label for="name">Name</label>
+            </div>
+            <div class="field">
+                <input type="text" id="email" name="email" placeholder="smth@gmail.com" [(ngModel)]="email" />
+                <label for="email">E-Mail</label>
+            </div>
+            <div class="field">
+                <textarea id="msg" rows="4" name="msg" placeholder="Your message..." [(ngModel)]="message"></textarea>
+                <label for="msg">Message</label>
+            </div>
+            <button class="button submit">Send</button>
+        </form>
+    </div>
+</div>
+
+<div id="myModal" class="modal">
+  <div class="success-container">
+    <div class="row">
+        <div class="modalbox success col-sm-8 col-md-6 col-lg-5 center animate">
+            <div class="icon">
+                <span class="close" (click)="closeModal()">&times;</span>
+                <i class="fa fa-check" aria-hidden="true"></i>
+            </div>
+            <h1>Success!</h1>
+            <p>Your message has been sent
+                <br>successfully.</p>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div id="myModal2" class="modal">
+    <div class="success-container">
+      <div class="row">
+          <div class="modalbox success fail col-sm-8 col-md-6 col-lg-5 center animate">
+              <div class="icon">
+                  <span class="close" (click)="closeModal()">&times;</span>
+                  <i class="fa fa-exclamation" aria-hidden="true"></i>
+              </div>
+              <h1>Failed!</h1>
+              <p>You have not filled all fields</p>
+          </div>
+      </div>
+    </div>
+  </div>

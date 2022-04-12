@@ -1,0 +1,317 @@
+h1 {
+  text-align: center;
+}
+
+ul {
+  --col-gap: 2rem;
+  --barH: 1rem;
+  --roleH: 2rem;
+  --flapH: 2rem;
+
+  width: min(60rem, 90%);
+  margin-inline: auto;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: var(--col-gap);
+  padding-inline: calc(var(--col-gap) / 2);
+
+  justify-content: center;
+  align-items: flex-start;
+  list-style: none;
+}
+ul li {
+  width: 10em;
+  display: grid;
+  grid-template:
+    "role"
+    "icon"
+    "title"
+    "descr";
+  align-items: flex-start;
+  gap: 1rem;
+  padding-block-end: calc(var(--flapH) + 1rem);
+  text-align: center;
+  background: var(--accent-color);
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.6) var(--roleH),
+    rgba(0, 0, 0, 0.4) calc(var(--roleH) + 0.5rem),
+    rgba(0, 0, 0, 0) calc(var(--roleH) + 0.5rem + 5rem)
+  );
+  clip-path: polygon(
+    calc(var(--col-gap) / -2 - 5px) 0,
+    calc(100% + var(--col-gap) / 2 + 5px) 0,
+    calc(100% + var(--col-gap) / 2 + 5px ) calc(100% - var(--flapH)),
+    50% 100%,
+    calc(var(--col-gap) / -2 - 5px) calc(100% - var(--flapH))
+  );
+}
+
+/* bar */
+ul li::before {
+  content: "";
+  grid-area: role;
+  height: var(--barH);
+  width: calc(100% + var(--col-gap));
+  margin-left: calc(var(--col-gap) / -2);
+  margin-top: calc(var(--roleH) / 2 - var(--barH) / 2);
+  background: grey;
+  z-index: -1;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.2) 30%,
+    rgba(255, 255, 255, 0.1) 40%,
+    rgba(0, 0, 0, 0.1) 60%,
+    rgba(0, 0, 0, 0.2) 70%,
+    rgba(0, 0, 0, 0.4)
+  );
+}
+
+/* role */
+ul li::after {
+  content: "";
+  grid-area: role;
+  background: var(--accent-color);
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.2) 30%,
+    rgba(255, 255, 255, 0.1) 40%,
+    rgba(0, 0, 0, 0.1) 60%,
+    rgba(0, 0, 0, 0.2) 70%,
+    rgba(0, 0, 0, 0.4)
+  );
+  height: var(--roleH);
+}
+
+ul li .icon,
+ul li .title,
+ul li .descr {
+  padding-inline: 1rem;
+  color: white;
+  text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+ul li .icon {
+  font-size: 3rem;
+}
+ul li .title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+ul li .descr {
+  font-size: 0.9rem;
+}
+
+.credits {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+.credits a {
+  color: var(--color);
+}
+
+.banner {
+    background-color: #f3f4f7;
+    background-image: url(https://mohirdev.uz/wp-content/uploads/bosh-saxifa.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    max-width: 100vw;
+    width: 100vw;
+    padding: 80px 0px 80px 0px;
+    z-index: 0;
+    position: relative;
+    .overlay {
+        margin-top: 0;
+        opacity: .8;
+        top: 0;
+        bottom: 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+    .container {
+        margin-bottom: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+        .row {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            position: relative;
+            align-items: flex-start;
+            margin-left: 15px;
+            margin-right: 15px;
+            .part1 {
+                width: 70%;
+                h2 {
+                    font-weight: 300;
+                    font-style: normal;
+                    color: #ffffff;
+                    font-size: 28px;
+                    line-height: 1.38em !important;
+                    letter-spacing: -.13px;
+                }
+            }
+            .part2 {
+                width: 30%;
+                margin-top: 2rem;
+                text-align: right;
+                a {
+                    font-family: 'Open Sans',sans-serif;
+                    font-weight: 700;
+                    font-style: normal;
+                    text-transform: uppercase;
+                    font-size: 16px;
+                    box-shadow: 2px 2px 3px 0px rgb(0 0 0 / 20%);
+                    background-color: #ffffff;
+                    color: #ff0d00;
+                    border-radius: 4px;
+                    border-width: 1px;
+                    border-color: #ffffff;
+                    border-style: solid;
+                    padding: 23px 28px;
+                    text-decoration: none;
+                    i {
+                        font-size: 75%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+.carousel {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.carousel .carousel-inner {
+  position: relative;
+  width: 400%;
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.858, 0.01, 0.068, 0.99);
+}
+
+.carousel-inner .carousel-item {
+  width: 25%;
+}
+
+.carousel-caption {
+  padding: 50px 120px 80px;
+  text-align: center;
+}
+
+.carousel-caption img {
+  display: inline-block;
+  max-width: 130px;
+  padding: 5px;
+  background-color: #ffffff;
+  border: 1px solid #efefef;
+  border-radius: 50%;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+  margin-bottom: 10px;
+}
+
+.carousel-caption h2 {
+  color: #123B57;
+  font-size: 25px;
+  font-weight: 700;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+.carousel-caption h2 .job-title {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.carousel-caption p {
+  color: #333333;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.carousel input {
+  display: none;
+}
+
+.carousel .indicators {
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel .indicators label {
+  position: relative;
+  width: 25px;
+  height: 7px;
+  margin: 0 3px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#indicator1:checked ~ .indicators label:nth-child(1),
+#indicator2:checked ~ .indicators label:nth-child(2),
+#indicator3:checked ~ .indicators label:nth-child(3),
+#indicator4:checked ~ .indicators label:nth-child(4) {
+  background-color: #123B57;
+}
+
+#indicator1:checked ~ .carousel-inner {
+  transform: translateX(0%);
+}
+
+#indicator2:checked ~ .carousel-inner {
+  transform: translateX(-25%);
+}
+
+#indicator3:checked ~ .carousel-inner {
+  transform: translateX(-50%);
+}
+
+#indicator4:checked ~ .carousel-inner {
+  transform: translateX(-75%);
+}
+
+/* Let's write the media query */
+@media (max-width: 768px) {
+  .carousel-caption {
+    padding: 50px 70px 80px;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-caption {
+    padding: 50px 15px 80px;
+  }
+
+  .carousel-caption h2 {
+    font-size: 20px;
+  }
+
+  .carousel-caption h2 .job-title {
+    font-size: 17px;
+  }
+
+  .carousel-caption p {
+    font-size: 16px;
+  }
+}
